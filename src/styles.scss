@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~swiper/swiper-bundle";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Swiper
+.swiper-container {
+  aspect-ratio: 980/400;
+  width: 100%;
+}
+.swiper-slide {
+  background: #f1f1f1;
+  color: #000;
+  text-align: center;
+  line-height: 300px;
+}
+
+// dialog trailer
+.dialog_trailer mat-dialog-container{
+  padding: 0 24px;
+  overflow: visible;
+  background-color: black;
+}
