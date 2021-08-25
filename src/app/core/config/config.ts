@@ -17,6 +17,6 @@ export const dataCarousel: Array<CarouselItem> = [
     tenPhim: 'Lật Mặt 5: 48H',
     maPhim: 8071,
     youtubeVideoIdTrailer: 'ykBfss-8H4Y',
-    poster: '../../../../assets/img/carousel/lat-mat-48h.png',
+    poster: '../../../../assets/img/carousel/lat-mat-48h.jpg',
   },
 ];

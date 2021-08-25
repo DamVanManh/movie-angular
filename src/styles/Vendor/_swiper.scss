@@ -1,6 +1,6 @@
 // Swiper
 .swiper-container {
-  aspect-ratio: 980/400;
+  aspect-ratio: 16/9;
   width: 100%;
 }
 .swiper-slide {
@@ -9,13 +9,13 @@
   text-align: center;
   line-height: 300px;
 }
-.swiper-button-prev{
+.swiper-button-prev {
   left: 4vw;
-  color: #ea3b92
+  color: #ea3b92;
 }
 .swiper-button-next {
   right: 4vw;
-  color: #ea3b92
+  color: #ea3b92;
 }
 .swiper-pagination-bullet {
   margin: 0 15px !important;
@@ -23,5 +23,5 @@
   height: 18px;
 }
 .swiper-pagination-bullet-active {
-    background: #ea3b92;
+  background: #ea3b92;
 }
