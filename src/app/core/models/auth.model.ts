@@ -19,6 +19,7 @@ export interface SignupParams {
   email: string;
   soDT: string;
   matKhau: string;
+  maLoaiNguoiDung: string;
 }
 
 export interface SignupResult {

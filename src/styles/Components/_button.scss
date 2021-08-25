@@ -1,0 +1,7 @@
+.btnpink{
+    @include stylebtnPink();
+    @include styleTextWhite();
+    &:hover{
+        @include styleHoverBtn();
+    }
+}

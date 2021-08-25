@@ -1,0 +1,27 @@
+// Swiper
+.swiper-container {
+  aspect-ratio: 980/400;
+  width: 100%;
+}
+.swiper-slide {
+  background: #f1f1f1;
+  color: #000;
+  text-align: center;
+  line-height: 300px;
+}
+.swiper-button-prev{
+  left: 4vw;
+  color: #ea3b92
+}
+.swiper-button-next {
+  right: 4vw;
+  color: #ea3b92
+}
+.swiper-pagination-bullet {
+  margin: 0 15px !important;
+  width: 18px;
+  height: 18px;
+}
+.swiper-pagination-bullet-active {
+    background: #ea3b92;
+}

@@ -21,8 +21,8 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', loadChildren: () => HomeModule },
       { path: 'movie/:movieId', loadChildren: () => MovieModule },
-      { path: 'signin', component: SigninComponent },
-      { path: 'signup', component: SignupComponent },
+      { path: 'dangnhap', component: SigninComponent },
+      { path: 'dangky', component: SignupComponent },
     ],
   },
 ];

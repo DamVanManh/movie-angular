@@ -1,182 +1,330 @@
-<div class="bg-secondary">
-  <div class="d-flex justify-content-between px-4 py-2">
-    <div class="text-warning">CyberCinema</div>
-
-    <div class="d-flex">
-      <p class="mr-2">
-        <a routerLink="/">Home</a>
-      </p>
-      <p class="mr-2">
-        <a routerLink="/movie">Movie</a>
-      </p>
-      <p class="mr-2">
-        <a routerLink="/checkout">Checkout</a>
-      </p>
-    </div>
+<main
+  class="spacer"
+  style="background-image: url('assets/img/header/layer1.svg')"
+>
+  <div class="header-fixed" #headerFixed>
+    <img class="logo" src="assets/img/header/logo.png" alt="logo" />
+    <ul class="bottom-nav">
+      <li routerLink="/" [class]="{ 'pink-bg': href == '/' }">TRANG CHỦ</li>
+      <li routerLink="/phim" [class]="{ 'pink-bg': href == '/phim' }">PHIM</li>
+      <li routerLink="/rap" [class]="{ 'pink-bg': href == '/rap' }">
+        RẠP CHIẾU
+      </li>
+      <li routerLink="/sukien" [class]="{ 'pink-bg': href == '/sukien' }">
+        ƯU ĐÃI - SỰ KIỆN
+      </li>
+    </ul>
+  </div>
+  <div #header>
+    <header class="container">
+      <a routerLink="/" class="logo">
+        <img src="assets/img/header/touchcinema.png" alt="touch cinema" />
+      </a>
+      <div class="main-nav">
+        <div class="top-nav">
+          <img
+            class="dat-ve-ngay"
+            src="assets/img/header/dat-ve-ngay.png"
+            alt=""
+          />
+          <div class="auth" *ngIf="!currentUser">
+            <img class="vn" src="assets/img/header/vn.png" alt="" />
+            <button (click)="handleSignup()" class="dangky">
+              <img
+                src="assets/img/header/bong-ngo.png"
+                alt=""
+                class="bong-ngo"
+              />
+              <span>&nbsp;ĐĂNG KÝ</span>
+            </button>
+            <button (click)="handleSignin()" class="dangnhap">
+              <img src="assets/img/header/so-da.png" alt="" class="so-da" />
+              <span>ĐĂNG NHẬP</span>
+            </button>
+          </div>
+          <div class="auth" *ngIf="currentUser">
+            <img class="vn" src="assets/img/header/vn.png" alt="" />
+            <button class="dangky">
+              <img
+                src="https://i.pravatar.cc/300?u={{ currentUser.email }}"
+                alt=""
+                class="user"
+              />
+              <span>&nbsp;{{ currentUser?.hoTen }}</span>
+            </button>
+            <button class="dangnhap" (click)="logOut()">
+              <span>ĐĂNG XUẤT</span>
+            </button>
+          </div>
+        </div>
+        <ul class="bottom-nav">
+          <li routerLink="/" [class]="{ 'pink-bg': href == '/' }">TRANG CHỦ</li>
+          <li routerLink="/phim" [class]="{ 'pink-bg': href == '/phim' }">
+            PHIM
+          </li>
+          <li routerLink="/rap" [class]="{ 'pink-bg': href == '/rap' }">
+            RẠP CHIẾU
+          </li>
+          <li routerLink="/sukien" [class]="{ 'pink-bg': href == '/sukien' }">
+            ƯU ĐÃI - SỰ KIỆN
+          </li>
+        </ul>
+      </div>
+    </header>
   </div>
 
-  <div *ngIf="currentUser">
-    {{ currentUser?.hoTen }}
-  </div>
-</div>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-<footer>
-  <div class="wrapper-footer container-fluid">
+  <footer>
+    <div class="wrapper-footer container-fluid">
       <div class="row">
-          <div class="col-md-6 col-lg-4 first">
-              <p class="title">TIX</p>
-              <div class="row">
-                  <div class="col-6 info1">
-                      <div class="">
-                          <a href="#" style="padding-right: 10px;">FAQ</a>
-                      </div>
-                      <div class="">
-                          <a href="#">Brand Guidelines</a>
-                      </div>
-                  </div>
-                  <div class="col-6 info1">
-                      <div class="">
-                          <a href="#">Thỏa thuận sử dụng</a>
-                      </div>
-                      <div class="">
-                          <a href="#">Chính sách bảo mật</a>
-                      </div>
-                  </div>
+        <div class="col-md-6 col-lg-4 first">
+          <p class="title">TIX</p>
+          <div class="row">
+            <div class="col-6 info1">
+              <div class="">
+                <a href="#" style="padding-right: 10px">FAQ</a>
               </div>
+              <div class="">
+                <a href="#">Brand Guidelines</a>
+              </div>
+            </div>
+            <div class="col-6 info1">
+              <div class="">
+                <a href="#">Thỏa thuận sử dụng</a>
+              </div>
+              <div class="">
+                <a href="#">Chính sách bảo mật</a>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 second">
-              <p class="title">ĐỐI TÁC</p>
-              <div class="row">
-                  <div class="col-12 lineBottom">
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/cgv.png" style="background-color: white" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/bhd.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/galaxycine.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/cinestar.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/404b8c4b80d77732e7426cdb7e24be20.png" alt />
-                      </a>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12 lineBottom">
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/megags.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/bt.jpg" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/dongdacinema.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/TOUCH.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/cnx.jpg" alt />
-                      </a>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12 lineBottom">
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/STARLIGHT.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/dcine.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/zalopay_icon.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/payoo.jpg" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/VCB.png" alt />
-                      </a>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12 lineBottom">
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/AGRIBANK.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/VIETTINBANK.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/IVB.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/123go.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconConnect" src="assets/img/footer/laban.png" alt />
-                      </a>
-                  </div>
-              </div>
+        </div>
+        <div class="col-lg-4 second">
+          <p class="title">ĐỐI TÁC</p>
+          <div class="row">
+            <div class="col-12 lineBottom">
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/cgv.png"
+                  style="background-color: white"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img class="iconConnect" src="assets/img/footer/bhd.png" alt />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/galaxycine.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/cinestar.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/404b8c4b80d77732e7426cdb7e24be20.png"
+                  alt
+                />
+              </a>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-4 third">
-              <div class="row">
-                  <div class="col-6 textCenter">
-                      <p class="title">MOBILE APP</p>
-                      <a href="#">
-                          <img class="iconApp" src="assets/img/footer/apple-logo.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconApp" src="assets/img/footer/android-logo.png" alt />
-                      </a>
-                  </div>
-                  <div class="col-6 textCenter">
-                      <p class="title ">SOCIAL</p>
-                      <a href="#">
-                          <img class="iconApp" src="assets/img/footer/facebook-logo.png" alt />
-                      </a>
-                      <a href="#">
-                          <img class="iconApp" src="assets/img/footer/zalo-logo.png" alt />
-                      </a>
-                  </div>
-              </div>
+          <div class="row">
+            <div class="col-12 lineBottom">
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/megags.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img class="iconConnect" src="assets/img/footer/bt.jpg" alt />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/dongdacinema.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/TOUCH.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img class="iconConnect" src="assets/img/footer/cnx.jpg" alt />
+              </a>
+            </div>
           </div>
-          <div class="col-12 four">
-              <a style="margin-right: 25px;">Thỏa thuận sử dụng</a>
-              <a>Chính sách bảo mật</a>
-              <div class="iconFooter" style="margin-top: 15px;">
-                  <a href="#" style="margin-right: 10px;">
-                      <img class="iconApp" src="assets/img/footer/facebook-logo.png" alt />
-                  </a>
-                  <a href="#">
-                      <img class="iconApp" src="assets/img/footer/zalo-logo.png" alt />
-                  </a>
-              </div>
+          <div class="row">
+            <div class="col-12 lineBottom">
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/STARLIGHT.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/dcine.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/zalopay_icon.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/payoo.jpg"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img class="iconConnect" src="assets/img/footer/VCB.png" alt />
+              </a>
+            </div>
           </div>
+          <div class="row">
+            <div class="col-12 lineBottom">
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/AGRIBANK.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/VIETTINBANK.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img class="iconConnect" src="assets/img/footer/IVB.png" alt />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/123go.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconConnect"
+                  src="assets/img/footer/laban.png"
+                  alt
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 third">
+          <div class="row">
+            <div class="col-6 textCenter">
+              <p class="title">MOBILE APP</p>
+              <a href="#">
+                <img
+                  class="iconApp"
+                  src="assets/img/footer/apple-logo.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconApp"
+                  src="assets/img/footer/android-logo.png"
+                  alt
+                />
+              </a>
+            </div>
+            <div class="col-6 textCenter">
+              <p class="title">SOCIAL</p>
+              <a href="#">
+                <img
+                  class="iconApp"
+                  src="assets/img/footer/facebook-logo.png"
+                  alt
+                />
+              </a>
+              <a href="#">
+                <img
+                  class="iconApp"
+                  src="assets/img/footer/zalo-logo.png"
+                  alt
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 four">
+          <a style="margin-right: 25px">Thỏa thuận sử dụng</a>
+          <a>Chính sách bảo mật</a>
+          <div class="iconFooter" style="margin-top: 15px">
+            <a href="#" style="margin-right: 10px">
+              <img
+                class="iconApp"
+                src="assets/img/footer/facebook-logo.png"
+                alt
+              />
+            </a>
+            <a href="#">
+              <img class="iconApp" src="assets/img/footer/zalo-logo.png" alt />
+            </a>
+          </div>
+        </div>
       </div>
       <hr class="hrFooter" />
       <div class="row infoFooter">
-          <div class="col-12 col-md-1 col-lg-1 col-xl-1 imgFooter">
-              <img class="zion" src="assets/img/footer/zion-logo.jpg" alt />
+        <div class="col-12 col-md-1 col-lg-1 col-xl-1 imgFooter">
+          <img class="zion" src="assets/img/footer/zion-logo.jpg" alt />
+        </div>
+        <div class="col-12 col-md-9 col-lg-9 col-xl-9 infoFooter d-flex">
+          <div class="mx-auto">
+            <span class="title">TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</span>
+            <span
+              >Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ
+              Chí Minh, Việt Nam.</span
+            >
+            <span
+              >Giấy chứng nhận đăng ký kinh doanh số: 0101659783,<br />đăng ký
+              thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và
+              đầu tư Thành phố Hồ Chí Minh cấp.</span
+            >
+            <span
+              >Số Điện Thoại (Hotline): 1900 545 436<br />Email:
+              <a href="#" style="color: #fb4226">support@tix.vn</a>
+            </span>
           </div>
-          <div class="col-12 col-md-9 col-lg-9 col-xl-9 infoFooter d-flex">
-            <div class="mx-auto">
-              <span class="title">TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</span>
-              <span>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</span>
-              <span>Giấy chứng nhận đăng ký kinh doanh số: 0101659783,<br />đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020  do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.</span>
-              <span>Số Điện Thoại (Hotline): 1900 545 436<br />Email:
-              <a href="#" style="color: #fb4226;">support@tix.vn</a>
-              </span>
-            </div>
-          </div>
-          <div class="col-12 col-md-2 col-lg-2 col-xl-2 imgFooter">
-              <img class="congThuong" src="assets/img/footer/d1e6bd560daa9e20131ea8a0f62e87f8.png" alt />
-          </div>
+        </div>
+        <div class="col-12 col-md-2 col-lg-2 col-xl-2 imgFooter">
+          <img
+            class="congThuong"
+            src="assets/img/footer/d1e6bd560daa9e20131ea8a0f62e87f8.png"
+            alt
+          />
+        </div>
       </div>
-  </div>
-</footer>
+    </div>
+  </footer>
+</main>
