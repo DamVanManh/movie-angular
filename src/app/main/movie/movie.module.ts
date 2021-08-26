@@ -6,12 +6,8 @@ import { MovieComponent } from './movie.component';
 import { BannerComponent } from './banner/banner.component';
 import { ShowTimesComponent } from './show-times/show-times.component';
 
-
 @NgModule({
   declarations: [MovieComponent, BannerComponent, ShowTimesComponent],
-  imports: [
-    CommonModule,
-    MovieRoutingModule
-  ]
+  imports: [CommonModule, MovieRoutingModule],
 })
-export class MovieModule { }
+export class MovieModule {}

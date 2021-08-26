@@ -1,7 +1,25 @@
-.btnpink{
-    @include stylebtnPink();
-    @include styleTextWhite();
-    &:hover{
-        @include styleHoverBtn();
-    }
+.btnpink {
+  @include stylebtnPink();
+  @include styleTextWhite();
+  &:hover {
+    @include styleHoverBtn();
+  }
+}
+.aBtn {
+  border: 1px solid #ea3b92;
+  background: #ea3b92;
+  padding: 5px 30px 5px 10px;
+  color: #fff;
+  display: inline-block;
+  margin: 10px 0;
+  font-size: 22px;
+  box-shadow: 2px 3px 0 #868686;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    background: #f756a7;
+    border-color: #f756a7;
+    color: #fff;
+  }
 }

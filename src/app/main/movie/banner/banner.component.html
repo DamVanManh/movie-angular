@@ -1,1 +1,78 @@
-<p>banner works!</p>
+<div class="container">
+  <div
+    class="banner"
+    [style]="{ 'background-image': 'url(' + movie?.hinhAnh + ')' }"
+  >
+    <div class="overlay"></div>
+    <span class="videoButton" (click)="openTrailer()">
+      <span></span>
+    </span>
+  </div>
+  <div class="detail clearfix">
+    <div class="poster">
+      <img
+        src="{{ movie.hinhAnh }}"
+        alt="{{ movie.tenPhim }}"
+        class="img-responsive"
+      />
+    </div>
+    <div class="movie-info">
+      <div class="movie-name">
+        <h1>{{ movie.tenPhim }}</h1>
+        <h2></h2>
+      </div>
+      <p>
+        <strong>Thời lượng:</strong>
+        110 phút
+      </p>
+      <p>
+        <strong>Khởi chiếu từ:</strong>
+        Ngày {{ movie.ngayKhoiChieu | date: "dd/MM/yyyy" }}
+      </p>
+      <p>
+        <strong>Thể loại:</strong>
+        Hành động
+      </p>
+      <p>
+        <strong>Định dạng:</strong>
+        2D
+      </p>
+      <p class="cap">
+        <strong>Đạo diễn:</strong>
+        Cary Joji Fukunaga
+      </p>
+      <p class="cap">
+        <strong>Diễn viên:</strong>
+        Daniel Craig, Rami Malek, Lea Seydoux, Ralph Fiennes, Ben Whishaw
+      </p>
+      <p>
+        <strong>Độ tuổi:</strong>
+        <span class="age-C16">C16</span>
+        - PHIM CẤM PHỔ BIẾN ĐẾN KHÁN GIẢ DƯỚI 16 TUỔI
+      </p>
+      <div class="age_restricted"><span>C16</span></div>
+      <div class="group-buton">
+        <a class="aBtn" id="dat-ve"
+          ><img
+            src="https://touchcinema.com/images/icons/icon-dat-ve.png"
+            alt="Đặt vé"
+          />
+          Đặt vé</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="movie-content shadowContent">
+    <div class="content">
+      <div class="text">
+        <p>{{ movie.moTa }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="showtime-section" id="showtime">
+    <h2 class="titleOrange my-3">Lịch chiếu</h2>
+    <div class="showtimes-message shadowContent">
+      <div>Hiện chưa có lịch chiếu cho phim này</div>
+    </div>
+  </div>
+</div>

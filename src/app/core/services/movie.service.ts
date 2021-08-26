@@ -14,14 +14,12 @@ export class MovieService {
 
   getMovieList(): Observable<Movie[]> {
     const url =
-      'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01';
+      'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP09';
 
     return this.http.get<Movie[]>(url);
   }
 
   getMovieDetail(movieId: string): Observable<MovieDetail> {
-    // const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?maPhim=${movieId}`;
-
     const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim`;
 
     let params = new HttpParams();
@@ -30,37 +28,19 @@ export class MovieService {
 
     return this.http.get<MovieDetail>(url, { params });
   }
+  layDanhSachPhimTheoNgay(
+    tuNgay: string,
+    denNgay: string,
+    soTrang: number,
+    soPhanTuTrenTrang: number
+  ): Observable<Movie[]> {
+    const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimTheoNgay?maNhom=GP09`;
 
-  // Promise
-  // axios.get(url).then(res => console.log(res))
-  // getMovieListPromise(): Promise<Movie[]> {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       // reject("Lỗi rồi")
-
-  //       resolve([
-  //         { id: 1, name: 'Avenger', price: 80000 },
-  //         { id: 2, name: 'Wonder woman', price: 80000 },
-  //         { id: 3, name: 'Iron man', price: 80000 },
-  //       ]);
-  //     }, 3000);
-  //   });
-  // }
-
-  // Observable
-  // getMovieListObservable(): Observable<Movie[]> {
-  //   return new Observable((subscribe) => {
-  //     setTimeout(() => {
-  //       subscribe.next([
-  //         { id: 1, name: 'Avenger', price: 80000 },
-  //         { id: 2, name: 'Wonder woman', price: 80000 },
-  //         { id: 3, name: 'Iron man', price: 80000 },
-  //       ]);
-
-  //       // subscribe.error('Lỗi rồi')
-
-  //       subscribe.complete();
-  //     }, 3000);
-  //   });
-  // }
+    let params = new HttpParams();
+    params = params.append('tuNgay', tuNgay);
+    params = params.append('denNgay', denNgay);
+    params = params.append('soTrang', soTrang);
+    params = params.append('soPhanTuTrenTrang', soPhanTuTrenTrang);
+    return this.http.get<Movie[]>(url, { params });
+  }
 }

@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent implements OnInit {
-  movieDetail: Movie | null = null;
+  movieDetail!: Movie;
   showTimes: ShowTimes[] = [];
 
   constructor(
@@ -20,11 +20,11 @@ export class MovieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // B1: Cần lấy mã phim từ trên url
+    console.log('activatedRoute', this.activatedRoute);
+
     this.activatedRoute.params.subscribe({
       next: (params) => {
-        console.log(params);
-        // B2: Dùng mã phim gọi API lấy thông tin phim
+        // console.log(params);
         this.movieService.getMovieDetail(params.movieId).subscribe({
           next: (result) => {
             const { lichChieu, ...detail } = result;

@@ -1,41 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-// B1: import movie service
 import { MovieService } from 'src/app/core/services/movie.service';
 import { Movie } from 'src/app/core/models/movie.model';
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  EffectCoverflow,
+} from 'swiper/core';
+SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss'],
 })
 export class MovieListComponent implements OnInit {
-  movieList: Movie[] = [];
-
-  // B2: Khai báo movie service trong constructor
+  nowshowingList: Movie[] = [];
+  comingsoonList: Movie[] = [];
+  show: boolean = true;
   constructor(private movieService: MovieService) {}
-
   ngOnInit(): void {
-    // Demo Observable
-    this.movieService.getMovieList().subscribe({
-      // Khi nhận kết quả
-      next: (result) => {
-        this.movieList = result;
-        console.log(this.movieList);
-      },
-      // Khi nhận lỗi
-      error: (error) => {
-        console.log(error);
-      },
-      // Khi kết thúc
-      complete: () => {
-        console.log('DONE');
-      },
-    });
+    this.movieService
+      .layDanhSachPhimTheoNgay('01/01/2020', '01/01/2022', 1, 20)
+      .subscribe({
+        next: (result) => {
+          this.nowshowingList = result.splice(0, 10);
+          this.comingsoonList = result;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+  }
+  activeNowShowing() {
+    this.show = true;
+  }
+  activeComingsoon() {
+    this.show = false;
   }
 }
-
-
-
-
-
-
-

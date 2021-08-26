@@ -1,0 +1,40 @@
+.shadowContent {
+  margin-top: 15px;
+  box-shadow: 7px 7px 1px #f29438;
+  position: relative;
+  &::before {
+    top: 0;
+    background-image: url("https://touchcinema.com/images/content.png?e96c1610ce1577c19b20e7f7b1dfcc87");
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 100%;
+    z-index: 2;
+    content: " ";
+    position: absolute;
+    width: 20px;
+    left: 0;
+  }
+  &::after {
+    background: #ea3b92;
+    top: 99px;
+    height: calc(100% - 99px);
+    content: " ";
+    position: absolute;
+    width: 20px;
+    left: 0;
+  }
+  & > div {
+    background: #ea3b92;
+    color: #fff;
+    padding: 20px 20px 20px 10px;
+    margin-left: 15px;
+  }
+}
+.titleOrange {
+  color: #f29438;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #f29438;
+  padding-left: 10px;
+  line-height: 35px;
+}

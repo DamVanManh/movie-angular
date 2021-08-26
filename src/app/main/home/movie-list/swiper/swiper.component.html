@@ -1,0 +1,20 @@
+<!-- [loop]="true" -->
+<swiper
+  [slidesPerView]="3"
+  [spaceBetween]="50"
+  [navigation]="true"
+  [effect]="'coverflow'"
+  [grabCursor]="true"
+  [centeredSlides]="true"
+>
+  <ng-container *ngFor="let movie of movieList">
+    <ng-template swiperSlide>
+      <div
+        class="movie"
+        [style]="{ 'background-image': 'url(' + movie.hinhAnh + ')' }"
+      >
+        <div class="backgroundLinear"></div>
+      </div>
+    </ng-template>
+  </ng-container>
+</swiper>

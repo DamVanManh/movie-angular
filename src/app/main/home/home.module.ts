@@ -8,9 +8,15 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 
 import { SwiperModule } from 'swiper/angular';
 import { MaterialModule } from 'src/app/core/material/material.module';
+import { MovieComponent } from './movie-list/movie/movie.component';
 
 @NgModule({
-  declarations: [HomeComponent, CarouselComponent, MovieListComponent],
+  declarations: [
+    HomeComponent,
+    CarouselComponent,
+    MovieListComponent,
+    MovieComponent,
+  ],
   imports: [CommonModule, HomeRoutingModule, SwiperModule, MaterialModule],
 })
 export class HomeModule {}
