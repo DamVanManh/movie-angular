@@ -1,3 +1,5 @@
+import { MovieListModule } from './movie-list/movie-list.module';
+import { MovieDetailModule } from './movie-detail/movie-detail.module';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { NgModule } from '@angular/core';
@@ -6,7 +8,6 @@ import { CheckoutGuard } from '../core/guards/checkout.guard';
 import { CheckoutModule } from './checkout/checkout.module';
 import { HomeModule } from './home/home.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { MovieModule } from './movie/movie.module';
 
 const routes: Routes = [
   {
@@ -20,9 +21,10 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', pathMatch: 'full', loadChildren: () => HomeModule },
-      { path: 'movie/:movieId', loadChildren: () => MovieModule },
+      { path: 'movie/:movieId', loadChildren: () => MovieDetailModule },
       { path: 'dangnhap', component: SigninComponent },
       { path: 'dangky', component: SignupComponent },
+      { path: 'phim', loadChildren: () => MovieListModule },
     ],
   },
 ];

@@ -22,6 +22,10 @@ header {
       .dat-ve-ngay {
         width: 200px;
         height: auto;
+        display: inline-block;
+        @media screen and (max-width: 769px) {
+          display: none;
+        }
       }
       .auth {
         width: 400px;

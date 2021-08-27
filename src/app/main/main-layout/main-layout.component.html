@@ -5,12 +5,18 @@
   <div class="header-fixed" #headerFixed>
     <img class="logo" src="assets/img/header/logo.png" alt="logo" />
     <ul class="bottom-nav">
-      <li routerLink="/" [class]="{ 'pink-bg': href == '/' }">TRANG CHỦ</li>
-      <li routerLink="/phim" [class]="{ 'pink-bg': href == '/phim' }">PHIM</li>
-      <li routerLink="/rap" [class]="{ 'pink-bg': href == '/rap' }">
+      <li
+        [routerLink]="['/']"
+        [routerLinkActive]="['pink-bg']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        TRANG CHỦ
+      </li>
+      <li [routerLink]="['/phim']" [routerLinkActive]="['pink-bg']">PHIM</li>
+      <li [routerLink]="['/rap']" [routerLinkActive]="['pink-bg']">
         RẠP CHIẾU
       </li>
-      <li routerLink="/sukien" [class]="{ 'pink-bg': href == '/sukien' }">
+      <li [routerLink]="['/sukien']" [routerLinkActive]="['pink-bg']">
         ƯU ĐÃI - SỰ KIỆN
       </li>
     </ul>
@@ -58,14 +64,20 @@
           </div>
         </div>
         <ul class="bottom-nav">
-          <li routerLink="/" [class]="{ 'pink-bg': href == '/' }">TRANG CHỦ</li>
-          <li routerLink="/phim" [class]="{ 'pink-bg': href == '/phim' }">
+          <li
+            [routerLink]="['/']"
+            [routerLinkActive]="['pink-bg']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            TRANG CHỦ
+          </li>
+          <li [routerLink]="['/phim']" [routerLinkActive]="['pink-bg']">
             PHIM
           </li>
-          <li routerLink="/rap" [class]="{ 'pink-bg': href == '/rap' }">
+          <li [routerLink]="['/rap']" [routerLinkActive]="['pink-bg']">
             RẠP CHIẾU
           </li>
-          <li routerLink="/sukien" [class]="{ 'pink-bg': href == '/sukien' }">
+          <li [routerLink]="['/sukien']" [routerLinkActive]="['pink-bg']">
             ƯU ĐÃI - SỰ KIỆN
           </li>
         </ul>

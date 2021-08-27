@@ -6,11 +6,11 @@ import { Movie, ShowTimes } from 'src/app/core/models/movie.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss'],
+  selector: 'app-movie-detail',
+  templateUrl: './movie-detail.component.html',
+  styleUrls: ['./movie-detail.component.scss'],
 })
-export class MovieComponent implements OnInit {
+export class MovieDetailComponent implements OnInit {
   movieDetail!: Movie;
   showTimes: ShowTimes[] = [];
 
@@ -20,11 +20,8 @@ export class MovieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('activatedRoute', this.activatedRoute);
-
     this.activatedRoute.params.subscribe({
       next: (params) => {
-        // console.log(params);
         this.movieService.getMovieDetail(params.movieId).subscribe({
           next: (result) => {
             const { lichChieu, ...detail } = result;

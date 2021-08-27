@@ -2,7 +2,7 @@
   <div class="tab my-4">
     <div
       class="nowshowing"
-      [ngClass]="{ active: show }"
+      [class]="{ 'active': show }"
       (click)="activeNowShowing()"
     >
       <div class="button">
@@ -13,7 +13,7 @@
     </div>
     <div
       class="comingsoon"
-      [ngClass]="{ active: !show }"
+      [class]="{ 'active': !show }"
       (click)="activeComingsoon()"
     >
       <div class="button">
@@ -24,20 +24,24 @@
     </div>
   </div>
 
-  <swiper
-    [slidesPerView]="4"
-    [spaceBetween]="50"
-    [navigation]="true"
-    [effect]="'coverflow'"
-    [grabCursor]="true"
-    [centeredSlides]="true"
-    [initialSlide]="5"
-  >
-    [centeredSlidesBounds]="true"
-    <ng-container *ngFor="let movie of show ? comingsoonList : nowshowingList">
-      <ng-template swiperSlide>
-        <app-movie [movie]="movie"></app-movie>
-      </ng-template>
-    </ng-container>
-  </swiper>
+  <div>
+    <swiper
+      [slidesPerView]="4"
+      [spaceBetween]="50"
+      [navigation]="true"
+      [grabCursor]="true"
+      [centeredSlides]="true"
+      [initialSlide]="5"
+      id="mySwiperID"
+    >
+      [centeredSlidesBounds]="true"
+      <ng-container
+        *ngFor="let movie of show ? comingsoonList : nowshowingList"
+      >
+        <ng-template swiperSlide>
+          <app-movie [movie]="movie"></app-movie>
+        </ng-template>
+      </ng-container>
+    </swiper>
+  </div>
 </section>

@@ -1,0 +1,26 @@
+<!--  -->
+<div class="movie">
+  <div
+    class="top"
+    [style]="{ 'background-image': 'url(' + movie.hinhAnh + ')' }"
+  >
+    <div class="info">
+      <a routerLink="/movie/{{ movie.maPhim }}" class="button detail">
+        &gt; Chi tiết
+      </a>
+      <a href="" class="button ticket">
+        Mua vé
+        <img src="assets/img/home/icon-ticket.png" alt="Mua vé" />
+      </a>
+      <p class="button text"><b>Thời lượng:</b> 120 phút</p>
+      <p class="button category text"><b>Đánh giá:</b> {{ movie.danhGia }}</p>
+      <p class="button format text"><b>Định dạng</b> 2D</p>
+    </div>
+  </div>
+  <div class="bottom">
+    <p class="movie-name">{{ movie.tenPhim }}</p>
+    <p class="start-time">
+      Khởi chiếu {{ movie.ngayKhoiChieu | date: "dd/MM/yyyy" }}
+    </p>
+  </div>
+</div>

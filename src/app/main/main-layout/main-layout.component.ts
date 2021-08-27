@@ -8,7 +8,7 @@ import {
 import { Subscription } from 'rxjs';
 import { SigninResult } from 'src/app/core/models/auth.model';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
@@ -30,7 +30,6 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
           this.currentUser = result;
         },
       });
-    this.href = this.router.url;
   }
   ngAfterViewInit() {
     window.addEventListener('scroll', this.scroll.bind(this));

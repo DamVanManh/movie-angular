@@ -1,3 +1,4 @@
+import { MovieListComponent } from './movie-list/movie-list.component';
 import { ConfirmEqualValidatorDirective } from './../core/shared/confirm-equal-validator.directive';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ import { MaterialModule } from '../core/material/material.module';
     MainLayoutComponent,
     SigninComponent,
     SignupComponent,
+    MovieListComponent,
     ConfirmEqualValidatorDirective,
   ],
   imports: [CommonModule, MainRoutingModule, ComponentsModule, MaterialModule],

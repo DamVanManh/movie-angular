@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="content">
+    <div class="tab mt-4 mb-5">
+      <div
+        class="nowshowing"
+        [class]="{ active: show }"
+        (click)="activeNowShowing()"
+      >
+        <div class="button">
+          <img src="assets/img/home/icon-ticket.png" alt="" />
+          <span class="title">phim đang chiếu</span>
+        </div>
+        <span class="border"></span>
+      </div>
+      <div
+        class="comingsoon"
+        [class]="{ active: !show }"
+        (click)="activeComingsoon()"
+      >
+        <div class="button">
+          <span class="title">phim sắp chiếu</span>
+          <img src="assets/img/home/icon-sap-chieu.png" alt="" />
+        </div>
+        <span class="border"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-6 col-sm-4 col-lg-3"
+        *ngFor="let movie of show ? comingsoonList : nowshowingList"
+      >
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </div>
+  </div>
+</div>
