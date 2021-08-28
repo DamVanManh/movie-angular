@@ -10,6 +10,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class MovieService {
   nowshowingList = new BehaviorSubject<Movie[] | null>(null);
   comingsoonList = new BehaviorSubject<Movie[] | null>(null);
+  currentMovieId = new BehaviorSubject<string | null>(null);
+  flowList = new BehaviorSubject<Movie[] | null>(null);
   constructor(private http: HttpClient) {}
 
   getMovieList(): Observable<Movie[]> {

@@ -9,6 +9,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MaterialModule } from '../core/material/material.module';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MaterialModule } from '../core/material/material.module';
     SignupComponent,
     MovieListComponent,
     ConfirmEqualValidatorDirective,
+    EventComponent,
   ],
   imports: [CommonModule, MainRoutingModule, ComponentsModule, MaterialModule],
 })

@@ -1,3 +1,4 @@
+import { MovieService } from 'src/app/core/services/movie.service';
 import {
   Component,
   OnInit,
@@ -8,7 +9,7 @@ import {
 import { Subscription } from 'rxjs';
 import { SigninResult } from 'src/app/core/models/auth.model';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
@@ -20,8 +21,13 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('headerFixed') headerFixed!: ElementRef;
   currentUser: SigninResult | null = null;
   currentUserSubscription?: Subscription;
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private movieService: MovieService
+  ) {}
   href: string = '';
+  isActive: string | null = null;
   ngOnInit(): void {
     this.currentUserSubscription = this.auth.currentUser
       .asObservable()
@@ -30,6 +36,12 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
           this.currentUser = result;
         },
       });
+
+    this.movieService.currentMovieId.asObservable().subscribe({
+      next: (result) => {
+        this.isActive = result;
+      },
+    });
   }
   ngAfterViewInit() {
     window.addEventListener('scroll', this.scroll.bind(this));

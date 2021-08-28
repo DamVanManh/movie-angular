@@ -1,43 +1,27 @@
-<section class="container movie-list">
-  <div class="tab my-4">
-    <div
-      class="nowshowing"
-      [class]="{ 'active': show }"
-      (click)="activeNowShowing()"
-    >
-      <div class="button">
-        <img src="assets/img/home/icon-ticket.png" alt="" />
-        <span class="title">phim đang chiếu</span>
-      </div>
-      <span class="border"></span>
+<section class="container cover-flow-movie">
+  <h1 class="titleOrange my-5">Phim nổi bật</h1>
+  <div class="swiper">
+    <div #prevEl class="swiper-navigation-prev navigation">
+      <img class="" src="assets/img/carousel/arrow-left.png" alt="prev" />
     </div>
-    <div
-      class="comingsoon"
-      [class]="{ 'active': !show }"
-      (click)="activeComingsoon()"
-    >
-      <div class="button">
-        <span class="title">phim sắp chiếu</span>
-        <img src="assets/img/home/icon-sap-chieu.png" alt="" />
-      </div>
-      <span class="border"></span>
+    <div #nextEl class="swiper-navigation-next navigation">
+      <img
+        class="img-fluid"
+        src="assets/img/carousel/arrow-right.png"
+        alt="next"
+      />
     </div>
-  </div>
-
-  <div>
     <swiper
       [slidesPerView]="4"
       [spaceBetween]="50"
-      [navigation]="true"
       [grabCursor]="true"
       [centeredSlides]="true"
       [initialSlide]="5"
       id="mySwiperID"
+      [navigation]="{ prevEl: prevEl, nextEl: nextEl }"
     >
       [centeredSlidesBounds]="true"
-      <ng-container
-        *ngFor="let movie of show ? comingsoonList : nowshowingList"
-      >
+      <ng-container *ngFor="let movie of flowList">
         <ng-template swiperSlide>
           <app-movie [movie]="movie"></app-movie>
         </ng-template>

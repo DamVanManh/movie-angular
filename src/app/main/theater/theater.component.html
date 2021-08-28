@@ -1,0 +1,83 @@
+<section class="container rap">
+  <div class="cum-rap-chieu my-4">
+    <h1 class="titleOrange">Cụm rạp chiếu</h1>
+    <div class="tab shadowContent">
+      <div class="theater">
+        <ng-container *ngFor="let hubTheater of allTheater">
+          <div
+            class="theaterItem p-3"
+            [class]="{
+              selected: hubTheater.maHeThongRap === selectedHubTheater
+            }"
+            (click)="selectHubTheater(hubTheater.maHeThongRap)"
+          >
+            <div class="logo">
+              <img
+                class="img-fluid"
+                src="{{ hubTheater.logo }}"
+                alt="theater"
+              />
+            </div>
+            <p>{{ hubTheater.tenHeThongRap }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="rap-chieu my-4">
+    <h1 class="titleOrange">Rạp chiếu</h1>
+    <div class="tab shadowContent">
+      <div class="theater">
+        <ng-container *ngFor="let theater of lstCumRap">
+          <div
+            class="theaterItem p-3"
+            [class]="{
+              selected: theater.maCumRap === selectedTheaterCode
+            }"
+            (click)="selectTheater(theater.maCumRap)"
+          >
+            <div class="logo">
+              <img
+                class="img-fluid rounded"
+                src="assets/img/theater/bhd-star-bitexco.png"
+                alt="theater"
+              />
+            </div>
+            <div>
+              <span [innerHtml]="theater.tenCumRap | styleTheaterName"></span>
+            </div>
+            <div>
+              <span>{{ theater.diaChi }}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="phim my-4">
+    <h1 class="titleOrange">Rạp chiếu</h1>
+    <div class="tab shadowContent">
+      <div class="theater">
+        <ng-container *ngFor="let theater of lstCumRap">
+          <div class="theaterItem p-3">
+            <div class="logo">
+              <img
+                class="img-fluid rounded"
+                src="assets/img/theater/bhd-star-bitexco.png"
+                alt="theater"
+              />
+            </div>
+            <div>
+              <span [innerHtml]="theater.tenCumRap | styleTheaterName"></span>
+            </div>
+            <div>
+              <span>{{ theater.diaChi }}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

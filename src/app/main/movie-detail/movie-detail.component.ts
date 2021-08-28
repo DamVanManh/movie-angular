@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { MovieService } from 'src/app/core/services/movie.service';
 import { Movie, ShowTimes } from 'src/app/core/models/movie.model';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss'],
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieDetailComponent implements OnInit, OnDestroy {
   movieDetail!: Movie;
   showTimes: ShowTimes[] = [];
 
@@ -22,18 +22,24 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe({
       next: (params) => {
+        // get movie
         this.movieService.getMovieDetail(params.movieId).subscribe({
           next: (result) => {
             const { lichChieu, ...detail } = result;
             this.movieDetail = detail;
             this.showTimes = lichChieu;
-            console.log(this.movieDetail);
           },
           error: (error) => {
             console.log(error);
           },
         });
+        // save movieId for hightlight menu
+        this.movieService.currentMovieId.next(params.movieId);
       },
     });
+  }
+  ngOnDestroy(): void {
+    // reset movieId
+    this.movieService.currentMovieId.next(null);
   }
 }

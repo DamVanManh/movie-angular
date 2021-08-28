@@ -9,29 +9,22 @@ SwiperCore.use([Navigation, Pagination]);
   styleUrls: ['./cover-flow-movie.scss'],
 })
 export class CoverFlowMovieComponent implements OnInit {
-  nowshowingList: Movie[] = [];
-  comingsoonList: Movie[] = [];
-  show: boolean = true;
+  flowList: Movie[] | null = null;
   constructor(private movieService: MovieService) {}
   ngOnInit(): void {
-    this.movieService
-      .layDanhSachPhimTheoNgay('01/01/2020', '01/01/2022', 1, 20)
-      .subscribe({
-        next: (result) => {
-          const nowshowingList = result.splice(0, 10);
-          this.nowshowingList = nowshowingList;
-          this.comingsoonList = result;
-          this.movieService.nowshowingList.next(nowshowingList);
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
-  }
-  activeNowShowing() {
-    this.show = true;
-  }
-  activeComingsoon() {
-    this.show = false;
+    this.flowList = this.movieService.flowList.value;
+    if (!this.flowList) {
+      this.movieService
+        .layDanhSachPhimTheoNgay('01/01/2020', '01/01/2022', 2, 20)
+        .subscribe({
+          next: (result) => {
+            this.flowList = result;
+            this.movieService.flowList.next(result);
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
+    }
   }
 }

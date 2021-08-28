@@ -12,7 +12,13 @@
       >
         TRANG CHỦ
       </li>
-      <li [routerLink]="['/phim']" [routerLinkActive]="['pink-bg']">PHIM</li>
+      <li
+        [routerLink]="['/phim']"
+        [routerLinkActive]="['pink-bg']"
+        [class]="{ 'pink-bg': isActive }"
+      >
+        PHIM
+      </li>
       <li [routerLink]="['/rap']" [routerLinkActive]="['pink-bg']">
         RẠP CHIẾU
       </li>
@@ -71,7 +77,11 @@
           >
             TRANG CHỦ
           </li>
-          <li [routerLink]="['/phim']" [routerLinkActive]="['pink-bg']">
+          <li
+            [routerLink]="['/phim']"
+            [routerLinkActive]="['pink-bg']"
+            [class]="{ 'pink-bg': isActive }"
+          >
             PHIM
           </li>
           <li [routerLink]="['/rap']" [routerLinkActive]="['pink-bg']">

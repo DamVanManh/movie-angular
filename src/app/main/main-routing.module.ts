@@ -1,3 +1,4 @@
+import { TheaterModule } from './theater/theater.module';
 import { MovieListModule } from './movie-list/movie-list.module';
 import { MovieDetailModule } from './movie-detail/movie-detail.module';
 import { SignupComponent } from './signup/signup.component';
@@ -8,6 +9,7 @@ import { CheckoutGuard } from '../core/guards/checkout.guard';
 import { CheckoutModule } from './checkout/checkout.module';
 import { HomeModule } from './home/home.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
       { path: 'dangnhap', component: SigninComponent },
       { path: 'dangky', component: SignupComponent },
       { path: 'phim', loadChildren: () => MovieListModule },
+      { path: 'sukien', component: EventComponent },
+      { path: 'rap', loadChildren: () => TheaterModule },
     ],
   },
 ];

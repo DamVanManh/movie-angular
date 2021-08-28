@@ -1,0 +1,59 @@
+.promotion {
+  background: #fff;
+  border-radius: 8px;
+  h1 {
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #eb1689;
+    margin: 0;
+    font-size: 29px;
+  }
+  .post-item {
+    margin-bottom: 0;
+    padding: 5px 0 5px 5px;
+    overflow: hidden;
+    .post-thumbnail {
+      float: left;
+      overflow: hidden;
+      border-radius: 3px;
+      margin-right: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .post-detail {
+      padding: 5px 10px;
+      h3 {
+        font-size: 12pt;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 700;
+        a {
+          text-decoration: none;
+          color: #ea3b92;
+        }
+      }
+      .description {
+        font-weight: 400;
+        text-align: justify;
+        font-size: 17px;
+      }
+    }
+  }
+}
+.movie {
+  background: #fff;
+  border-radius: 8px;
+  .listMovie {
+    padding: 11px 22px 0px 22px;
+    .poster {
+      width: 100%;
+      aspect-ratio: 2;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-bottom: 20px;
+    }
+  }
+}
