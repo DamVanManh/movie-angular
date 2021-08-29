@@ -5,28 +5,28 @@ export interface Theater {
   logo: string;
 }
 export interface TheaterShowtime {
-  lstCumRap: LstCumRap[];
+  lstCumRap: CumRap[];
   maHeThongRap: string;
   tenHeThongRap: string;
   logo: string;
   mahom: string;
 }
-export interface LstLichChieuTheoPhim {
+export interface LichChieuTheoPhim {
   maLichChieu: number;
   maRap: string;
   tenRap: string;
   ngayChieuGioChieu: Date;
   giaVe: number;
 }
-export interface LstCumRap {
-  danhSachPhim: DanhSachPhim[];
+export interface CumRap {
+  danhSachPhim: Phim[];
   maCumRap: string;
   tenCumRap: string;
   diaChi: string;
 }
 
-export interface DanhSachPhim {
-  lstLichChieuTheoPhim: LstLichChieuTheoPhim[];
+export interface Phim {
+  lstLichChieuTheoPhim: LichChieuTheoPhim[];
   maPhim: number;
   tenPhim: string;
   hinhAnh: string;

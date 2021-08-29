@@ -3,22 +3,22 @@
     <h1 class="titleOrange">Cụm rạp chiếu</h1>
     <div class="tab shadowContent">
       <div class="theater">
-        <ng-container *ngFor="let hubTheater of allTheater">
+        <ng-container *ngFor="let heThongRap of mangHeThongRap">
           <div
             class="theaterItem p-3"
             [class]="{
-              selected: hubTheater.maHeThongRap === selectedHubTheater
+              selected: heThongRap.maHeThongRap === maHeThongRapDangChon
             }"
-            (click)="selectHubTheater(hubTheater.maHeThongRap)"
+            (click)="chonHeThongRap(heThongRap.maHeThongRap)"
           >
             <div class="logo">
               <img
                 class="img-fluid"
-                src="{{ hubTheater.logo }}"
+                src="{{ heThongRap.logo }}"
                 alt="theater"
               />
             </div>
-            <p>{{ hubTheater.tenHeThongRap }}</p>
+            <p>{{ heThongRap.tenHeThongRap }}</p>
           </div>
         </ng-container>
       </div>
@@ -29,13 +29,13 @@
     <h1 class="titleOrange">Rạp chiếu</h1>
     <div class="tab shadowContent">
       <div class="theater">
-        <ng-container *ngFor="let theater of lstCumRap">
+        <ng-container *ngFor="let cumRap of lstCumRap">
           <div
             class="theaterItem p-3"
             [class]="{
-              selected: theater.maCumRap === selectedTheaterCode
+              selected: cumRap.maCumRap === maCumRapDangChon
             }"
-            (click)="selectTheater(theater.maCumRap)"
+            (click)="chonCumRap(cumRap.maCumRap)"
           >
             <div class="logo">
               <img
@@ -45,10 +45,10 @@
               />
             </div>
             <div>
-              <span [innerHtml]="theater.tenCumRap | styleTheaterName"></span>
+              <span [innerHtml]="cumRap.tenCumRap | styleTheaterName"></span>
             </div>
             <div>
-              <span>{{ theater.diaChi }}</span>
+              <span>{{ cumRap.diaChi }}</span>
             </div>
           </div>
         </ng-container>
@@ -57,27 +57,47 @@
   </div>
 
   <div class="phim my-4">
-    <h1 class="titleOrange">Rạp chiếu</h1>
+    <h1 class="titleOrange">Danh sách phim</h1>
     <div class="tab shadowContent">
-      <div class="theater">
-        <ng-container *ngFor="let theater of lstCumRap">
-          <div class="theaterItem p-3">
-            <div class="logo">
-              <img
-                class="img-fluid rounded"
-                src="assets/img/theater/bhd-star-bitexco.png"
-                alt="theater"
-              />
-            </div>
-            <div>
-              <span [innerHtml]="theater.tenCumRap | styleTheaterName"></span>
-            </div>
-            <div>
-              <span>{{ theater.diaChi }}</span>
+      <ng-container *ngFor="let phim of danhSachPhimDangChon">
+        <div class="phim">
+          <div class="row">
+            <div
+              class="col-12 col-sm-3 rightside rounded mb-2 mb-md-0"
+              [style]="{ 'background-image': 'url(' + phim?.hinhAnh + ')' }"
+            ></div>
+            <div class="col-12 col-sm-9 leftside rounded py-3">
+              <div class="chiTiet mb-3">
+                <div class="top">
+                  <p>{{ phim?.tenPhim }}</p>
+                  <div class="star">
+                    <ng-container *ngFor="let start of [1, 2, 3, 4, 5]">
+                      <mat-icon>star half</mat-icon>
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <div class="thoiLuong"><span>Thời lượng:</span> 120 phút</div>
+                  <div class="theLoai"><span>Thể loại:</span> Hài Hước</div>
+                  <div class="daoDien"><span>Đạo diễn:</span> Stahelski</div>
+                </div>
+              </div>
+              <div class="maLichChieu">
+                <div class="d-flex flex-wrap">
+                  <ng-container
+                    *ngFor="let lichChieu of phim?.lstLichChieuTheoPhim"
+                  >
+                    <span class="px-2 lichChieu" routerLink="/datve/{{lichChieu?.maLichChieu}}">{{
+                      lichChieu?.ngayChieuGioChieu | date: "hh:mm"
+                    }}</span>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="age_restricted"><span>C16</span></div>
             </div>
           </div>
-        </ng-container>
-      </div>
+        </div>
+      </ng-container>
     </div>
   </div>
 </section>

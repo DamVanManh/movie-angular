@@ -34,7 +34,7 @@ export class CheckoutGuard implements CanActivate {
 
     // Khi không đủ điều kiên truy cập vào route, trước khi chuyển người dùng về trang signin, cần lưu lại url hiện tại để có thể redirect người dùng về trang này sau khi đăng nhập
     (window as any).PATH = state.url
-    this.router.navigateByUrl('/signin');
+    this.router.navigateByUrl('/dangnhap');
     return false;
   }
 }

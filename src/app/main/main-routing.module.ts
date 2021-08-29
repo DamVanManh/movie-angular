@@ -1,3 +1,5 @@
+import { SignupGuard } from './../core/guards/signup.guard';
+import { SigninGuard } from '../core/guards/signin.guard';
 import { TheaterModule } from './theater/theater.module';
 import { MovieListModule } from './movie-list/movie-list.module';
 import { MovieDetailModule } from './movie-detail/movie-detail.module';
@@ -13,7 +15,7 @@ import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
   {
-    path: 'checkout',
+    path: 'datve/:maLichChieu',
     canActivate: [CheckoutGuard],
     loadChildren: () => CheckoutModule,
   },
@@ -24,8 +26,16 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', loadChildren: () => HomeModule },
       { path: 'movie/:movieId', loadChildren: () => MovieDetailModule },
-      { path: 'dangnhap', component: SigninComponent },
-      { path: 'dangky', component: SignupComponent },
+      {
+        path: 'dangnhap',
+        canDeactivate: [SigninGuard],
+        component: SigninComponent,
+      },
+      {
+        path: 'dangky',
+        canDeactivate: [SignupGuard],
+        component: SignupComponent,
+      },
       { path: 'phim', loadChildren: () => MovieListModule },
       { path: 'sukien', component: EventComponent },
       { path: 'rap', loadChildren: () => TheaterModule },

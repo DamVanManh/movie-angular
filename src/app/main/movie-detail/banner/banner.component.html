@@ -11,14 +11,14 @@
   <div class="detail clearfix">
     <div class="poster">
       <img
-        src="{{ movie.hinhAnh }}"
-        alt="{{ movie.tenPhim }}"
+        src="{{ movie?.hinhAnh }}"
+        alt="{{ movie?.tenPhim }}"
         class="img-responsive"
       />
     </div>
     <div class="movie-info">
       <div class="movie-name">
-        <h1>{{ movie.tenPhim }}</h1>
+        <h1>{{ movie?.tenPhim }}</h1>
         <h2></h2>
       </div>
       <p>
@@ -27,7 +27,7 @@
       </p>
       <p>
         <strong>Khởi chiếu từ:</strong>
-        Ngày {{ movie.ngayKhoiChieu | date: "dd/MM/yyyy" }}
+        Ngày {{ movie?.ngayKhoiChieu | date: "dd/MM/yyyy" }}
       </p>
       <p>
         <strong>Thể loại:</strong>
@@ -65,7 +65,7 @@
   <div class="movie-content shadowContent">
     <div class="content">
       <div class="text">
-        <p>{{ movie.moTa }}</p>
+        <p>{{ movie?.moTa }}</p>
       </div>
     </div>
   </div>
