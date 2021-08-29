@@ -18,9 +18,7 @@ export class CarouselComponent implements OnInit {
   ngOnInit(): void {}
   openDialog(youtubeVideoIdTrailer: string) {
     this.dialog.open(DialogComponent, {
-      data: {
-        youtubeVideoIdTrailer,
-      },
+      data: youtubeVideoIdTrailer,
       panelClass: 'dialog_trailer',
       autoFocus: false,
     });

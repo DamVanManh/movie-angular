@@ -1,4 +1,3 @@
-import { SignupComponent } from '../../main/signup/signup.component';
 import { Injectable } from '@angular/core';
 import {
   CanDeactivate,
@@ -7,13 +6,14 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SigninComponent } from 'src/app/main/signin/signin.component';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SignupGuard implements CanDeactivate<SignupComponent> {
+export class SigninGuard implements CanDeactivate<SigninComponent> {
   canDeactivate(
-    component: SignupComponent,
+    component: SigninComponent,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
@@ -25,8 +25,7 @@ export class SignupGuard implements CanDeactivate<SignupComponent> {
     // return true => cho phép rời khỏi route
 
     // Kiểm tra xem form đã bị thay đổi hay chưa
-    const isDirty =
-      component.signupForm.dirty && !component.signupForm.submitted;
+    const isDirty = component.signinForm.dirty && component.signinForm.invalid;
 
     if (isDirty) {
       return confirm('Thông tin đã điền sẽ bị mất, Bạn có chắc muốn rời khỏi!');

@@ -39,7 +39,7 @@ export class AdminGuard implements CanActivate {
     }
 
     // Chưa đăng nhập
-    this.router.navigateByUrl('/signin');
+    this.router.navigateByUrl('/dangky');
     return false;
   }
 }

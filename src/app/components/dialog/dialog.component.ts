@@ -7,9 +7,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
-  url: any;
+  url: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: string) {
     this.url = `https://www.youtube.com/embed/${this.data}?autoplay=1`;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('dữ liệu nhận ', this.data);
+  }
 }

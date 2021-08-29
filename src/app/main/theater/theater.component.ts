@@ -1,8 +1,8 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  DanhSachPhim,
-  LstCumRap,
-  LstLichChieuTheoPhim,
+  Phim,
+  CumRap,
+  LichChieuTheoPhim,
   Theater,
   TheaterShowtime,
 } from 'src/app/core/models/theater.models';
@@ -13,50 +13,62 @@ import { TheaterService } from 'src/app/core/services/theater.service';
   templateUrl: './theater.component.html',
   styleUrls: ['./theater.component.scss'],
 })
-export class TheaterComponent implements OnInit, OnChanges {
+export class TheaterComponent implements OnInit {
   constructor(private theaterService: TheaterService) {}
-  allTheater: Theater[] | null = null;
+  mangHeThongRap: Theater[] | null = null;
   theaterShowtime: TheaterShowtime[] | null = null;
-  selectedHubTheater: string = 'CineStar';
-  lstCumRap: LstCumRap[] | null = null;
-  selectedTheaterCode: string | null = null;
-  phim: DanhSachPhim | null = null;
+
+  maHeThongRapDangChon: string = 'CineStar';
+  lstCumRap: CumRap[] | null = null;
+  maCumRapDangChon: string | null = null;
+  danhSachPhimDangChon: Phim[] | undefined = undefined;
+  // phim: Phim | null = null;
   ngOnInit(): void {
     this.theaterService.LayThongTinHeThongRap().subscribe({
       next: (result) => {
-        this.allTheater = result;
+        this.mangHeThongRap = result;
       },
       error: (error) => {
         console.log(error);
       },
     });
-    this.getNewHubTheater(this.selectedHubTheater);
-  }
-  ngOnChanges() {
-    // changes.prop contains the old and the new value...
+    this.getNewHubTheater(this.maHeThongRapDangChon);
   }
   getNewHubTheater(maHeThongRap: string) {
     this.theaterService.LayThongTinLichChieuHeThongRap(maHeThongRap).subscribe({
       next: (result) => {
         this.theaterShowtime = result;
         this.lstCumRap = result[0].lstCumRap;
-        this.selectedTheaterCode = this.lstCumRap[0].maCumRap;
-        this.phim = this.lstCumRap[0].danhSachPhim[0];
-        console.log('giá trị lấy về ', result, this.phim);
+        this.maCumRapDangChon = this.lstCumRap[0].maCumRap;
+        this.danhSachPhimDangChon = this.lstCumRap[0].danhSachPhim;
+        // this.phim = this.danhSachPhimDangChon[0];
+        console.log('cụm rạp đang chọn có rạp chiếu nào ', this.lstCumRap);
+        console.log('mã cụm rạp đang chọn ', this.maCumRapDangChon);
+        console.log(
+          'danh sách phim trong cụm rạp đang chọn ',
+          this.danhSachPhimDangChon
+        );
+        console.log('lstCumRap ', this.lstCumRap);
       },
       error: (error) => {
         console.log(error);
       },
     });
   }
-  selectHubTheater(maHeThongRap: string): void {
-    if (maHeThongRap === this.selectedHubTheater) return;
-    this.selectedHubTheater = maHeThongRap;
+  chonHeThongRap(maHeThongRap: string): void {
+    if (maHeThongRap === this.maHeThongRapDangChon) return;
+    this.maHeThongRapDangChon = maHeThongRap;
     this.getNewHubTheater(maHeThongRap);
   }
-  selectTheater(maCumRap: string): void {
-    if (maCumRap === this.selectedTheaterCode) return;
-    this.selectedTheaterCode = maCumRap;
+  chonCumRap(maCumRap: string): void {
+    if (maCumRap === this.maCumRapDangChon) return;
+    this.maCumRapDangChon = maCumRap;
+    this.danhSachPhimDangChon = this.lstCumRap?.find(
+      (cumRap) => cumRap.maCumRap === maCumRap
+    )?.danhSachPhim;
+    console.log('danhSachPhimDangChon ', this.danhSachPhimDangChon);
+
     // this.getNewHubTheater(maHeThongRap);
+    console.log('giá trị chọn ', maCumRap);
   }
 }

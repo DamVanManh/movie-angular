@@ -9,7 +9,7 @@ import {
 import { Subscription } from 'rxjs';
 import { SigninResult } from 'src/app/core/models/auth.model';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
