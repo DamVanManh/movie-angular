@@ -1,23 +1,44 @@
 // header
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 180px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
   .logo {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100px;
     flex: 0 0 100px;
+    -ms-flex-item-align: center;
     align-self: center;
     img {
       width: 100px;
     }
   }
   .main-nav {
+    -ms-flex-preferred-size: calc(100% - 100px);
     flex-basis: calc(100% - 100px);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     .top-nav {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
       align-items: flex-end;
       .dat-ve-ngay {
         width: 200px;
@@ -67,8 +88,14 @@ header {
 }
 .bottom-nav {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 0px;
   height: 70px;
@@ -102,9 +129,17 @@ header {
   overflow: hidden;
   border-bottom: 1px solid #ea3b92;
   padding-left: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
   .logo {
     position: absolute;
@@ -112,8 +147,14 @@ header {
     left: 39px;
   }
   ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-bottom: 0;
     li {
@@ -158,6 +199,8 @@ footer {
       color: #949494;
       white-space: nowrap;
       font-weight: 700;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
       transition: all 0.3s;
 
       &:hover {
@@ -229,6 +272,8 @@ footer {
         color: #949494;
         white-space: nowrap;
         font-weight: 700;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
         transition: all 0.3s;
         cursor: pointer;
 

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {
   Phim,
   CumRap,
-  LichChieuTheoPhim,
   Theater,
   TheaterShowtime,
 } from 'src/app/core/models/theater.models';
@@ -22,7 +21,6 @@ export class TheaterComponent implements OnInit {
   lstCumRap: CumRap[] | null = null;
   maCumRapDangChon: string | null = null;
   danhSachPhimDangChon: Phim[] | undefined = undefined;
-  // phim: Phim | null = null;
   ngOnInit(): void {
     this.theaterService.LayThongTinHeThongRap().subscribe({
       next: (result) => {
@@ -41,14 +39,6 @@ export class TheaterComponent implements OnInit {
         this.lstCumRap = result[0].lstCumRap;
         this.maCumRapDangChon = this.lstCumRap[0].maCumRap;
         this.danhSachPhimDangChon = this.lstCumRap[0].danhSachPhim;
-        // this.phim = this.danhSachPhimDangChon[0];
-        console.log('cụm rạp đang chọn có rạp chiếu nào ', this.lstCumRap);
-        console.log('mã cụm rạp đang chọn ', this.maCumRapDangChon);
-        console.log(
-          'danh sách phim trong cụm rạp đang chọn ',
-          this.danhSachPhimDangChon
-        );
-        console.log('lstCumRap ', this.lstCumRap);
       },
       error: (error) => {
         console.log(error);
@@ -66,9 +56,5 @@ export class TheaterComponent implements OnInit {
     this.danhSachPhimDangChon = this.lstCumRap?.find(
       (cumRap) => cumRap.maCumRap === maCumRap
     )?.danhSachPhim;
-    console.log('danhSachPhimDangChon ', this.danhSachPhimDangChon);
-
-    // this.getNewHubTheater(maHeThongRap);
-    console.log('giá trị chọn ', maCumRap);
   }
 }

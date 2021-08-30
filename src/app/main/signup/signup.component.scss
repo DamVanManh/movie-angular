@@ -6,6 +6,7 @@
   .title {
     background-color: #eb1689;
     position: relative;
+    -webkit-box-shadow: -2px -2px 2px #000;
     box-shadow: -2px -2px 2px #000;
 
     font-weight: lighter;
@@ -18,6 +19,8 @@
 
       right: 35%;
       width: 10%;
+      -webkit-transform: skewX(-30deg);
+      -ms-transform: skewX(-30deg);
       transform: skewX(-30deg);
 
       position: absolute;

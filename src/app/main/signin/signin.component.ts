@@ -29,8 +29,6 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(result));
         this.auth.currentUser.next(result);
         const redirectUrl = (window as any).PATH;
-        console.log('giá trị ', redirectUrl);
-
         if (redirectUrl) {
           (window as any).PATH = undefined;
           this.router.navigateByUrl(redirectUrl);

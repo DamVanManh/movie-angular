@@ -1,5 +1,6 @@
 .shadowContent {
   margin-top: 15px;
+  -webkit-box-shadow: 7px 7px 1px #f29438;
   box-shadow: 7px 7px 1px #f29438;
   position: relative;
   &::before {
