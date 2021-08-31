@@ -15,7 +15,8 @@ export interface LichChieuTheoPhim {
   maLichChieu: number;
   maRap: string;
   tenRap: string;
-  ngayChieuGioChieu: Date;
+  // ngayChieuGioChieu: Date;
+  ngayChieuGioChieu: string;
   giaVe: number;
 }
 export interface CumRap {
@@ -30,4 +31,17 @@ export interface Phim {
   maPhim: number;
   tenPhim: string;
   hinhAnh: string;
+}
+
+export interface PhimAddProps {
+  lstLichChieuTheoPhim: LichChieuTheoPhim[];
+  lstLichChieuTheoPhimVaNgay: LichChieuNgay[];
+  maPhim: number;
+  tenPhim: string;
+  hinhAnh: string;
+}
+
+export interface LichChieuNgay {
+  ngayChieuGioChieu: string;
+  mangLichChieu: LichChieuTheoPhim[];
 }

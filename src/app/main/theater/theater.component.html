@@ -83,13 +83,25 @@
                 </div>
               </div>
               <div class="maLichChieu">
-                <div class="d-flex flex-wrap">
+                <div>
                   <ng-container
-                    *ngFor="let lichChieu of phim?.lstLichChieuTheoPhim"
+                    *ngFor="let date of phim.lstLichChieuTheoPhimVaNgay"
                   >
-                    <span class="px-2 lichChieu" routerLink="/datve/{{lichChieu?.maLichChieu}}">{{
-                      lichChieu?.ngayChieuGioChieu | date: "hh:mm"
-                    }}</span>
+                    <div class="date mb-3">
+                      <p class="mb-1">
+                        Ngày: {{ date.ngayChieuGioChieu | date: "dd-MM-yyy" }}
+                      </p>
+                      <div class="d-flex flex-wrap justify-content-between lichChieuContainer">
+                        <span
+                          *ngFor="let lichChieu of date.mangLichChieu"
+                          class="px-2 lichChieu"
+                          routerLink="/datve/{{ lichChieu?.maLichChieu }}"
+                          >{{
+                            lichChieu?.ngayChieuGioChieu | date: "hh:mm"
+                          }}</span
+                        >
+                      </div>
+                    </div>
                   </ng-container>
                 </div>
               </div>
